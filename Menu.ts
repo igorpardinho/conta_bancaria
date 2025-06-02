@@ -1,10 +1,12 @@
-import readlinesync = require("readline-sync");
+import readlinesync from "readline-sync";
+
+import { colors } from "./src/util/Colors";
 
 export function main() {
   let opcao: number;
 
   while (true) {
-    console.log(`
+    console.log(colors.fg.bluestrong,`
 *****************************************************
                                                      
                 BANCO DO BRAZIL COM Z                
@@ -23,13 +25,13 @@ export function main() {
                                                      
 *****************************************************
                                                      
-`);
+`,colors.reset);
 
     console.log("Entre com a opção desejada: ");
     opcao = readlinesync.questionInt("");
 
     if (opcao == 9) {
-      console.log("\nBanco do Brazil com Z - O seu Futuro começa aqui!");
+      console.log(colors.fg.greenstrong,"\nBanco do Brazil com Z - O seu Futuro começa aqui!",colors.reset);
       sobre();
       process.exit(0);
     }
@@ -76,7 +78,7 @@ export function main() {
 }
 
 export function sobre(): void {
-  console.log(`
+  console.log(colors.fg.greenstrong,`
 *****************************************************
 Projeto Desenvolvido por: 
 Generation Brasil - generation@generation.org
