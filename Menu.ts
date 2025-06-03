@@ -1,12 +1,22 @@
 import readlinesync from "readline-sync";
 
 import { colors } from "./src/util/Colors";
+import { Conta } from "./src/model/Conta";
 
 export function main() {
   let opcao: number;
 
+  const conta: Conta = new Conta(1, 123, 2, "igor", 0);
+  conta.visualizar();
+  conta.sacar(10500);
+  conta.visualizar();
+  conta.depositar(5000);
+  conta.visualizar();
+
   while (true) {
-    console.log(colors.fg.bluestrong,`
+    console.log(
+      colors.fg.bluestrong,
+      `
 *****************************************************
                                                      
                 BANCO DO BRAZIL COM Z                
@@ -25,13 +35,19 @@ export function main() {
                                                      
 *****************************************************
                                                      
-`,colors.reset);
+`,
+      colors.reset
+    );
 
     console.log("Entre com a opção desejada: ");
     opcao = readlinesync.questionInt("");
 
     if (opcao == 9) {
-      console.log(colors.fg.greenstrong,"\nBanco do Brazil com Z - O seu Futuro começa aqui!",colors.reset);
+      console.log(
+        colors.fg.greenstrong,
+        "\nBanco do Brazil com Z - O seu Futuro começa aqui!",
+        colors.reset
+      );
       sobre();
       process.exit(0);
     }
@@ -78,13 +94,16 @@ export function main() {
 }
 
 export function sobre(): void {
-  console.log(colors.fg.greenstrong,`
+  console.log(
+    colors.fg.greenstrong,
+    `
 *****************************************************
 Projeto Desenvolvido por: 
 Generation Brasil - generation@generation.org
 github.com/conteudoGeneration
 *****************************************************
-`);
+`
+  );
 }
 
 main();
