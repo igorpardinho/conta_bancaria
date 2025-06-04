@@ -1,9 +1,9 @@
-export class Conta {
+export abstract class Conta {
   private _numero: number;
   private _agencia: number;
   private _tipo: number;
   private _titular: string;
-  private _saldo: number;
+  protected _saldo: number;
 
   constructor(
     numero: number,
